@@ -23,15 +23,18 @@ class Solution
     public:
     
     bool search(vector<vector<int>>& matrix, int n,int m,int x) {
-        bool bol=0;
-        int target=x;
              for(int i=0;i<n;i++){
-            if(matrix[i][0]<=target && matrix[i][m-1]>=target){
-                   bol=binarySearch(matrix[i],0,m-1,target);
-                if(bol) break;
+                 for(int j=0;j<m;j++){
+                    if( matrix[i][j]==x){
+                        return true;
+                        break;
+                    }
+            // if(matrix[i][0]<=target && matrix[i][m-1]>=target){
+            //       bol=binarySearch(matrix[i],0,m-1,target);
+            //     if(bol) break;
             }
         }
-        return bol;
+        return false;
     }
 };
 
