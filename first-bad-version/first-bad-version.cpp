@@ -4,7 +4,7 @@
 class Solution {
 public:
     int firstBadVersion(int n) {
-         int l = 1;
+         int l = 1; // binary search algo
         int h = n;
         while (l < h) {
         int mid = l + (h - l) / 2;
