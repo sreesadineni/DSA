@@ -8,10 +8,9 @@ public:
         }
         set<string> s;
         for(int i=0;i<words.size();i++){
-            string str=words[i];
             string ans;
-            for(int j=0; j<str.length(); j++){
-                ans+=mp[str[j]];
+            for(int j=0; j<words[i].length(); j++){
+                ans+=mp[words[i][j]];
             }
            s.insert(ans);
         }
