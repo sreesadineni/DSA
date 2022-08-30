@@ -8,7 +8,6 @@ public:
                swap(matrix[i][j], matrix[j][i]);
             }
         }
-        vector<int>v;
         for(int i=0;i<n;i++){
             reverse(matrix[i].begin(),matrix[i].end());
             // for(int j=0;j<n;j++){
