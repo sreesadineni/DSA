@@ -1,7 +1,7 @@
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
- *     int val;
+ *     int data;
  *     TreeNode *left;
  *     TreeNode *right;
  *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
@@ -11,20 +11,21 @@
  */
 class Solution {
 public:
-    TreeNode* searchBST(TreeNode* root, int val) {
-        TreeNode * node=new TreeNode();
-        if(root==NULL){
-            return root;
+    TreeNode* searchBST(TreeNode* root, int k) {
+      
+    TreeNode* curr=root;
+    while(curr!=NULL){
+        if(curr->val==k){
+            return curr;
         }
-        if(root->val > val){
-            node=searchBST(root->left , val);
-        }
-        else if(root->val < val){
-            node=searchBST(root->right , val);
+        else if(curr->val > k){
+            curr=curr->left;
         }
         else{
-            node=root;
+            curr=curr->right;
         }
-        return node;
+    }
+    return curr;
+      
     }
 };
