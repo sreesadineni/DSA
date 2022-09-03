@@ -3,19 +3,15 @@ public:
      stack<int> st,temp;
      void push(int val) {
         st.push(val);    
-        if(temp.empty()){
+        if(temp.empty() || val<=temp.top()){
            temp.push(val);
         } 
-        else if(val < temp.top()){
-            temp.push(val);
-        }
-         else{
-             temp.push(temp.top());
-         }
     }
     
     void pop() {
-        st.pop();temp.pop();
+          if(st.top()==temp.top())
+            temp.pop();
+         st.pop();
     }
     
     int top() {
