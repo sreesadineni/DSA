@@ -5,30 +5,30 @@ using namespace std;
 // } Driver Code Ends
 class Solution {
   public: 
-   bool detect(int node, int parent, int vis[], vector<int> adj[]) {
-        vis[node] = 1; 
-        // visit adjacent nodes
-        for(auto adjacentNode: adj[node]) {
-            // unvisited adjacent node
-            if(!vis[adjacentNode]) {
-                if(detect(adjacentNode, node, vis, adj) == true) 
-                    return true; 
-            }
-            // visited node but not a parent node
-            else if(adjacentNode != parent) return true; 
-        }
-        return false; 
-    }
-//   bool detect(int s,vector<int> adj[],int vis[],int p){
-//       vis[s]=1;
-//       for(auto x: adj[s]){
-//           if(!vis[x]){
-//               if(detect(x,adj,vis,s)) return true;
-//           }
-//           if(p!=x) return true;
-//       }
-//       return false;
-//   }
+//   bool detect(int node, int parent, int vis[], vector<int> adj[]) {
+//         vis[node] = 1; 
+//         // visit adjacent nodes
+//         for(auto adjacentNode: adj[node]) {
+//             // unvisited adjacent node
+//             if(!vis[adjacentNode]) {
+//                 if(detect(adjacentNode, node, vis, adj) == true) 
+//                     return true; 
+//             }
+//             // visited node but not a parent node
+//             else if(adjacentNode != parent) return true; 
+//         }
+//         return false; 
+//     }
+  bool detect(int s,vector<int> adj[],int vis[],int p){
+      vis[s]=1;
+      for(auto x: adj[s]){
+          if(!vis[x]){
+              if(detect(x,adj,vis,s)==true) return true;
+          }
+          else if(p!=x) return true;
+      }
+      return false;
+  }
 //   bool detect(int src, vector<int> adj[], int vis[]) {
 //       vis[src] = 1;
 //       queue<pair<int,int>> q; 
@@ -57,7 +57,7 @@ class Solution {
         int vis[V] = {0};
         for(int i = 0 ; i<V ;i++) {
             if(!vis[i]) {
-                if(detect(i,-1,vis,adj)) return true; 
+                if(detect(i,adj,vis,-1)) return true; 
             }
         }
         return false; 
