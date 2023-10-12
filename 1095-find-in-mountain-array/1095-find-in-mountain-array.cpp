@@ -10,6 +10,7 @@
 
 class Solution {
 public:
+//     binary search to find peak Element in an array
     int findPeak(MountainArray &mountainArr,int n){
         int l=1,r=n-2;
         int mid=0,midEle=0,prev=0,next=0;
@@ -30,6 +31,7 @@ public:
         }
         return -1;
     }
+//     binary search to find target element in the array
     int findTarget(int l,int r,MountainArray &mountainArr,int tar,bool b){
         int mid=0,midEle=0;
         while(l<=r){
@@ -57,6 +59,10 @@ public:
         }
         return -1;
     }
+// time completixity of binary search-> log(n)
+// performed binary search 3 times to find peak element, find target in left sidde of peak if not present then right side of the peak element (if necessary) 
+// time complexity in best case is log(n)(if peak element is target)
+// time complexity in worst case is 3log(n) (if target element is present in right side of peak)
     int findInMountainArray(int target, MountainArray &mountainArr) {
         int n=mountainArr.length();
         int mid=findPeak(mountainArr,n);
