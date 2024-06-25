@@ -11,7 +11,6 @@
  */
 class Solution {
 public:
-    vector<int>vec;
     int i=0;
     void inorder(TreeNode * root){
        if(root==NULL){
@@ -25,9 +24,6 @@ public:
     }
     TreeNode* convertBST(TreeNode* root) {
         inorder(root);
-        for(int i=0;i<vec.size();i++){
-            cout<<vec[i]<<" ";
-        }
         return root;
     }
 };
